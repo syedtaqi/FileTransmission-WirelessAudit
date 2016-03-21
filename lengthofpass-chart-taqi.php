@@ -26,10 +26,10 @@
 					animationEnabled:true,
 					animationDuration:1000,
 					
-					title:{text: "Passlength"},
+					title:{text: "Passlength per ESSID"},
 					
 					axisY: {title: 'Password Length'},
-					axisX: {title: "Index of passwords", minimum:0, },
+					axisX: {title: "ESSIDs", minimum:0, },
 							
 					
 					data:

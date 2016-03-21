@@ -21,11 +21,13 @@ if (mysqli_connect_errno($con))
 {
     $data_points = array();
     
-    $result = mysqli_query($con, "SELECT LENGTH(Password) AS pVAL FROM net4901");
+    $result = mysqli_query($con, "SELECT Password, ESSID  FROM net4901");
     
 	while($row = mysqli_fetch_array($result))
-    {        
-        $passpoint = array("y" => $row['pVAL']);
+    {    $result1=strlen($row['Password']); 
+			$result2 = $row['ESSID'];
+		
+        $passpoint = array("y" => $result1, "label"=> $result2);
         
         array_push($data_points, $passpoint);        
     };
