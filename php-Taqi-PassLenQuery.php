@@ -26,7 +26,13 @@ if (mysqli_connect_errno($con))
 	while($row = mysqli_fetch_array($result))
     {    $result1=strlen($row['Password']); 
 		 $result2 = $row['ESSID'];
-		
+	
+	
+	if (preg_match("/NOT RECOVERED/", $row['Password']))
+	{
+			$result1 = 0;
+	}
+	
         $passpoint = array("y" => $result1, "label"=> $result2);
         
         array_push($data_points, $passpoint);        
@@ -34,9 +40,7 @@ if (mysqli_connect_errno($con))
     
     echo json_encode($data_points, JSON_NUMERIC_CHECK);
 	
-	
-	
-	
+
 }
 mysqli_close($con);
 
